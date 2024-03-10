@@ -1,1 +1,1 @@
-# dl-open-cv
+# It is a fire detection project, I developed a system using Convolutional Neural Networks (CNN) and OpenCV. The system analyzes images or video frames in real-time to detect the presence of fire. It was trained on a dataset containing images of both fire and non-fire scenes to learn the distinguishing features of fires. When a fire is detected, the system alerts users through notifications or alarms, enabling quick response and potentially saving lives and property.
