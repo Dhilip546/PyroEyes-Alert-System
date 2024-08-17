@@ -6,19 +6,18 @@ from playsound import playsound
 
 app = Flask(__name__)
 
-# Load your pre-trained model
+
 model = keras.models.load_model('cnn.h5')
 
-# Define the full path to the alert sound file
 alert_sound_path = "C:\\Users\\dhilip\\Downloads\\siren-alert-96052.mp3"
 
-# Function to detect fire in a frame
+
 def detect_fire(frame):
-    # Preprocess the frame (resize it to match your model's input size)
+
     frame = cv2.resize(frame, (64, 64))
     frame = np.expand_dims(frame, axis=0)  # Add batch dimension
 
-    # Make a prediction
+    
     prediction = model.predict(frame)
 
     return prediction
@@ -38,7 +37,7 @@ def video_stream():
         if result[0][0] > 0.5:
             playsound(alert_sound_path)  # Play the alert sound when fire is detected
 
-        # Provide feedback on the frame
+        
         
         else:
             cv2.putText(frame, 'No Fire', (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
